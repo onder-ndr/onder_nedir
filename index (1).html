@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Önder Aydoğdu — Kıdemli Elektrik Mühendisi</title>
+<meta name="description" content="Önder Aydoğdu — 14+ yıl uluslararası deneyime sahip Kıdemli Elektrik Mühendisi. Elektrik, zayıf akım ve otomasyon sistemleri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint-deep:#0E2235;
+    --blueprint:#173A57;
+    --blueprint-line:#4C7C9C;
+    --paper:#EFF1EC;
+    --paper-alt:#E6E9E2;
+    --rule:#CDD2C6;
+    --ink:#182226;
+    --muted:#5B6A70;
+    --copper:#B15A22;
+    --copper-soft:#D98C4A;
+    --brass:#B4913E;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  img{display:block;max-width:100%;}
+
+  .langbar{
+    position:fixed;
+    top:18px;right:18px;
+    z-index:50;
+    display:flex;
+    gap:2px;
+    background:rgba(14,34,53,.88);
+    backdrop-filter:blur(6px);
+    border-radius:4px;
+    padding:4px;
+    box-shadow:0 4px 18px rgba(0,0,0,.18);
+  }
+  .langbar button{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+    background:transparent;
+    border:none;
+    color:#B9C7D2;
+    padding:7px 11px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .langbar button:hover{color:#fff;}
+  .langbar button.active{background:var(--copper);color:#fff;}
+
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(14,34,53,0) 0%, rgba(14,34,53,.15) 100%),
+      var(--blueprint-deep);
+    color:#EAF0F4;
+    position:relative;
+    overflow:hidden;
+    padding:104px 32px 0;
+  }
+  .hero .grid-bg{
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(124,168,201,.09) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(90deg, rgba(124,168,201,.09) 0 1px, transparent 1px 44px);
+    mask-image:radial-gradient(ellipse at 70% 20%, black, transparent 75%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:40px;
+    align-items:end;
+    padding-bottom:56px;
+  }
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--copper-soft);
+    margin:0 0 22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";width:26px;height:1px;background:var(--copper-soft);}
+  h1.name{
+    font-size:clamp(40px,6vw,68px);
+    font-weight:700;
+    letter-spacing:-.01em;
+    line-height:1.0;
+    margin:0 0 14px;
+  }
+  .role{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:clamp(14px,2vw,17px);
+    color:#B9C7D2;
+    letter-spacing:.03em;
+    margin:0 0 30px;
+  }
+  .role .sep{color:var(--copper-soft);margin:0 10px;}
+  .portrait{
+    width:150px;height:150px;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid rgba(124,168,201,.4);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+    position:relative;
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.03);}
+  .portrait::after{
+    content:"";position:absolute;inset:0;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  }
+
+  .titleblock{
+    border-top:1px solid rgba(124,168,201,.28);
+    max-width:var(--max);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+  }
+  .titleblock div{
+    padding:16px 20px;
+    border-right:1px solid rgba(124,168,201,.28);
+  }
+  .titleblock div:last-child{border-right:none;}
+  .titleblock .tb-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--copper-soft);
+    margin-bottom:5px;
+  }
+  .titleblock .tb-value{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:#DCE6EC;
+  }
+  .titleblock a.tb-value{text-decoration:none;}
+  .titleblock a.tb-value:hover{color:var(--copper-soft);}
+
+  main{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  section{
+    padding:72px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:none;}
+  .sec-head{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    align-items:start;
+    margin-bottom:38px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--copper);
+    padding-top:6px;
+  }
+  .sec-title{
+    font-size:26px;
+    font-weight:600;
+    color:var(--blueprint);
+  }
+
+  .about-text{
+    max-width:66ch;
+    font-size:17.5px;
+    color:#2B3438;
+    margin-left:82px;
+  }
+
+  .expertise-grid{
+    margin-left:82px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px 32px;
+  }
+  .expertise-grid div{
+    display:flex;gap:12px;align-items:baseline;
+    font-size:15px;
+    padding:10px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .expertise-grid div span.ix{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--copper);
+    font-size:12px;
+    flex-shrink:0;
+  }
+
+  .timeline{margin-left:82px;position:relative;}
+  .timeline::before{
+    content:"";position:absolute;left:33px;top:6px;bottom:6px;
+    width:1px;background:var(--rule);
+  }
+  .job{
+    position:relative;
+    padding-left:82px;
+    margin-bottom:44px;
+  }
+  .job:last-child{margin-bottom:0;}
+  .job-marker{
+    position:absolute;left:0;top:2px;
+    width:68px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    text-align:right;
+    padding-right:16px;
+  }
+  .job-marker .dot{
+    position:absolute;right:-2px;top:2px;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--copper);
+  }
+  .job h3{font-size:19px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+  .job .org{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--copper);
+    margin-bottom:10px;
+  }
+  .job p.desc{font-size:15px;color:#3A4448;max-width:62ch;margin:0 0 14px;}
+  .subprojects{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .subprojects li{
+    font-size:14px;
+    color:#3A4448;
+    padding-left:18px;
+    position:relative;
+  }
+  .subprojects li::before{
+    content:"";position:absolute;left:0;top:8px;
+    width:7px;height:1px;background:var(--brass);
+  }
+  .subprojects .sp-name{font-weight:500;color:var(--ink);}
+  .subprojects .sp-period{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;color:var(--muted);
+    margin-left:6px;
+  }
+  .subprojects .sp-detail{display:block;color:var(--muted);margin-top:2px;}
+
+  .projects-grid{
+    margin-left:82px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .proj-card{
+    background:var(--paper);
+    padding:26px 22px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .proj-card .pc-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;color:var(--copper);
+  }
+  .proj-card h3{font-size:16.5px;font-weight:600;line-height:1.3;color:var(--blueprint);}
+  .proj-card .pc-period{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);}
+  .proj-card p{font-size:13.6px;color:#3A4448;margin:0;}
+
+  .meta-grid{
+    margin-left:82px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr .8fr;
+    gap:44px;
+  }
+  .meta-col h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--copper);
+    margin-bottom:16px;
+  }
+  .edu-item{margin-bottom:16px;}
+  .edu-item .e-name{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .edu-item .e-period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
+  .skill-group{margin-bottom:16px;}
+  .skill-group .sg-label{font-size:12.5px;color:var(--muted);margin-bottom:6px;}
+  .skill-group .sg-items{font-size:14px;color:var(--ink);font-weight:500;}
+  .lang-item{display:flex;justify-content:space-between;font-size:14.5px;padding:9px 0;border-bottom:1px solid var(--rule);}
+  .lang-item .l-level{color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+
+  .intern-list{margin-left:82px;display:flex;flex-direction:column;gap:18px;}
+  .intern-item{display:grid;grid-template-columns:150px 1fr;gap:20px;}
+  .intern-item .i-org{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .intern-item .i-period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--copper);}
+  .intern-item p{margin:2px 0 0;font-size:14px;color:var(--muted);}
+
+  footer{
+    background:var(--blueprint-deep);
+    color:#B9C7D2;
+    padding:56px 32px 40px;
+  }
+  .footer-inner{max-width:var(--max);margin:0 auto;}
+  .footer-top{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    flex-wrap:wrap;gap:24px;
+    border-bottom:1px solid rgba(124,168,201,.25);
+    padding-bottom:28px;margin-bottom:20px;
+  }
+  .footer-top h2{font-size:24px;color:#EAF0F4;font-weight:600;}
+  .footer-contacts{display:flex;gap:26px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:13px;}
+  .footer-contacts a{text-decoration:none;color:#DCE6EC;}
+  .footer-contacts a:hover{color:var(--copper-soft);}
+  .footer-note{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6E828D;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  @media (max-width:760px){
+    .langbar{top:auto;bottom:16px;right:16px;}
+    .hero{padding-top:88px;}
+    .hero-inner{grid-template-columns:1fr;gap:24px;}
+    .portrait{width:104px;height:104px;order:-1;}
+    .titleblock{grid-template-columns:repeat(2,1fr);}
+    .titleblock div:nth-child(2){border-right:none;}
+    .sec-head{grid-template-columns:40px 1fr;}
+    .sec-num{padding-top:4px;font-size:11px;}
+    .about-text,.expertise-grid,.timeline,.projects-grid,.meta-grid,.intern-list{margin-left:0;}
+    .expertise-grid{grid-template-columns:1fr;}
+    .projects-grid{grid-template-columns:1fr;}
+    .meta-grid{grid-template-columns:1fr;gap:32px;}
+    .job{padding-left:52px;}
+    .job-marker{width:40px;font-size:9.5px;padding-right:8px;}
+    .timeline::before{left:19px;}
+    .intern-item{grid-template-columns:1fr;gap:2px;}
+    .footer-top{flex-direction:column;align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="langbar" aria-label="Language selector">
+  <button data-lang="tr" class="active">TR</button>
+  <button data-lang="en">EN</button>
+  <button data-lang="ru">RU</button>
+</nav>
+
+<header class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="kicker" data-i18n="kicker">Özgeçmiş</p>
+      <h1 class="name">Önder Aydoğdu</h1>
+      <p class="role"><span data-i18n="role">Kıdemli Elektrik Mühendisi</span><span class="sep">/</span><span class="mono" data-i18n="tagline">14+ yıl uluslararası EPC deneyimi</span></p>
+    </div>
+    <div class="portrait">
+      <img src="data:image/jpeg;base64,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" alt="Önder Aydoğdu">
+    </div>
+  </div>
+  <div class="titleblock">
+    <div>
+      <div class="tb-label" data-i18n="tb_location_label">Konum</div>
+      <div class="tb-value" data-i18n="tb_location_value">Moskova, Rusya</div>
+    </div>
+    <div>
+      <div class="tb-label" data-i18n="tb_phone_label">Telefon</div>
+      <a class="tb-value" href="tel:+79000634321">+7 900 063 43 21</a>
+    </div>
+    <div>
+      <div class="tb-label" data-i18n="tb_email_label">E-posta</div>
+      <a class="tb-value" href="mailto:onderaydogdu1@gmail.com">onderaydogdu1@gmail.com</a>
+    </div>
+    <div>
+      <div class="tb-label" data-i18n="tb_rev_label">Belge</div>
+      <div class="tb-value">CV · REV. 04 · 2026</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="about">
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <h2 class="sec-title" data-i18n="about_title">Hakkımda</h2>
+    </div>
+    <p class="about-text" data-i18n="about_text"></p>
+  </section>
+
+  <section id="expertise">
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <h2 class="sec-title" data-i18n="expertise_title">Uzmanlık Alanları</h2>
+    </div>
+    <div class="expertise-grid" id="expertiseGrid"></div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <h2 class="sec-title" data-i18n="experience_title">Deneyim</h2>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <h2 class="sec-title" data-i18n="projects_title">Öne Çıkan Projeler</h2>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </section>
+
+  <section id="profile">
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <h2 class="sec-title" data-i18n="profile_title">Eğitim &amp; Yetkinlikler</h2>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-col">
+        <h3 data-i18n="education_label">Eğitim</h3>
+        <div id="educationList"></div>
+      </div>
+      <div class="meta-col">
+        <h3 data-i18n="skills_label">Dijital Yetkinlikler</h3>
+        <div id="skillsList"></div>
+      </div>
+      <div class="meta-col">
+        <h3 data-i18n="languages_label">Diller</h3>
+        <div id="languagesList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="internships">
+    <div class="sec-head">
+      <div class="sec-num">06</div>
+      <h2 class="sec-title" data-i18n="internships_title">Stajlar</h2>
+    </div>
+    <div class="intern-list" id="internList"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <h2>Önder Aydoğdu</h2>
+      <div class="footer-contacts">
+        <a href="tel:+79000634321">+7 900 063 43 21</a>
+        <a href="mailto:onderaydogdu1@gmail.com">onderaydogdu1@gmail.com</a>
+        <span data-i18n="tb_location_value">Moskova, Rusya</span>
+      </div>
+    </div>
+    <div class="footer-note">
+      <span data-i18n="footer_note">Elektrik Mühendisliği · Proje Yönetimi · Otomasyon Sistemleri</span>
+      <span>© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = {
+  tr: {
+    kicker:"Özgeçmiş / CV",
+    role:"Kıdemli Elektrik Mühendisi",
+    tagline:"14+ yıl uluslararası EPC deneyimi",
+    tb_location_label:"Konum", tb_location_value:"Moskova, Rusya",
+    tb_phone_label:"Telefon", tb_email_label:"E-posta", tb_rev_label:"Belge",
+    about_title:"Hakkımda",
+    about_text:"Elektrik mühendisliği alanında 14 yılı aşkın uluslararası deneyime sahibim. Proje yönetimi, elektrik, zayıf akım ve otomasyon sistemlerinde uzmanlaşarak karmaşık projeleri başarıyla tamamladım. Ekip yönetiminde güçlü, çözüm odaklı ve kalite standartlarına bağlı çalışarak projelerin zamanında ve bütçe dahilinde teslim edilmesini sağladım.",
+    expertise_title:"Uzmanlık Alanları",
+    expertise: [
+      "Elektrik ve zayıf akım sistemleri uygulama",
+      "Proje yönetimi ve ekip koordinasyonu",
+      "Bütçe, malzeme satın alma ve hakediş takip ve kontrolü",
+      "Elektrik, zayıf akım ve otomasyon sistemleri devreye alma",
+      "Sözleşme yönetimi ve alt yüklenici koordinasyonu",
+      "Standartlara uygun üretim ve kalite kontrolü"
+    ],
+    experience_title:"Deneyim",
+    jobs: [
+      {
+        role:"Elektrik Şefi", company:"Globalmep", period:"Nisan 2025 — Devam Ediyor",
+        desc:"Elektrik-mekanik taşeronu olan firmada, 2.100 daire ve 3 katlı otoparktan oluşan konut projesinin sözleşme kapsamındaki elektrik işlerinin tamamlanmasını yönetiyorum.",
+        subs:[{name:"City Bay Toplu Konutları — 3. Etap", period:"Nisan 2025 — Devam Ediyor"}]
+      },
+      {
+        role:"Kıdemli Elektrik Mühendisi", company:"Limak Marash Stroy (LMS)", period:"Eylül 2018 — Kasım 2024",
+        desc:"Sözleşme kapsamındaki elektrik, zayıf akım ve otomasyon işlerinin standartlara uygun olarak tamamlanmasını sağladım; proje, malzeme, imalat ve bütçe takip süreçlerini yönettim.",
+        subs:[
+          {name:"Kaliningrad Silikon Plakalar ve Fotoelektrik Dönüştürücüler Üretim Kompleksi", period:"Eylül 2021 — Kasım 2024"},
+          {name:"Perm Alışveriş Merkezi", period:"2021"},
+          {name:"Chelyabinsk Havalimanı", period:"Eylül 2018 — 2021"}
+        ]
+      },
+      {
+        role:"Elektrik Mühendisi", company:"GAP İnşaat, Türkmenistan", period:"Ekim 2015 — Ağustos 2018 · Gübre Fabrikası Projesi",
+        desc:"Gübre fabrikası projesinde elektrik altyapısı ve enstrümantasyon süreçlerinin yönetimini üstlendim.",
+        subs:[
+          {name:"3.000 kişilik mobilizasyon sahasının elektrik altyapısını kurarak operasyonel süreçleri hızlandırdım.", period:""},
+          {name:"Alt yüklenicilerin iş planlarına uygun koordinasyonunu sağladım.", period:""},
+          {name:"Enstrümantasyon sistemlerinin kurulum ve testlerini doğrulukla tamamladım.", period:""}
+        ]
+      },
+      {
+        role:"Elektrik Mühendisi", company:"Polimeks İnşaat", period:"Kasım 2011 — 2015 · Türkmenistan ve Rusya",
+        desc:"Elektrik ve zayıf akım sistemlerinde saha uygulamaları ve devreye alma süreçlerini yönettim.",
+        subs:[
+          {name:"Türkmenistan Çimento Fabrikası", period:"2011 — 2013", detail:"PLC tabanlı otomasyon sistemlerinin devreye alınmasını sağladım; proses ekipmanlarının elektrik altyapısını kurarak üretime hazır hale getirdim."},
+          {name:"Kapalı Atletik Arena — 5.000 kişilik", period:"2013 — 2015", detail:"ICT ve kuvvetli akım projelerinin kontrolünü sağlayarak teslim ettim."}
+        ]
+      },
+      {
+        role:"Elektrik Mühendisi", company:"MELIN Elektrik", period:"2013 · SPA Merkezi, Soçi, Rusya",
+        desc:"Elektrik projelerinde tasarımdan uygulamaya kadar tüm süreçlerde aktif rol aldım.",
+        subs:[{name:"Zayıf ve kuvvetli akım sistemlerini devreye alarak tesisin açılışına katkı sağladım.", period:""}]
+      }
+    ],
+    projects_title:"Öne Çıkan Projeler",
+    projects: [
+      {name:"Kaliningrad Silikon Plakalar ve Fotoelektrik Dönüştürücüler Kompleksi", period:"2021 — 2024", desc:"3 yıllık süreçte kompleksin elektrik ve otomasyon altyapısını sıfırdan kurarak başarıyla devreye aldım."},
+      {name:"Türkmenistan Gübre Fabrikası", period:"2015 — 2018", desc:"Fabrikanın mobilizasyon altyapısı ve elektrik sistemlerini uluslararası standartlarda tamamladım."},
+      {name:"Chelyabinsk Havalimanı", period:"2018 — 2021", desc:"Havalimanının elektrik ve zayıf akım sistemlerini zamanında ve bütçe dahilinde teslim ettim."}
+    ],
+    profile_title:"Eğitim & Yetkinlikler",
+    education_label:"Eğitim",
+    education:[
+      {name:"Yıldız Teknik Üniversitesi — Elektrik Mühendisliği", period:"2006 — 2011"},
+      {name:"Yedikule Lisesi (Y.D.A)", period:"2001 — 2005"}
+    ],
+    skills_label:"Dijital Yetkinlikler",
+    skills:[
+      {label:"Tasarım ve Modelleme", items:"AutoCAD, Revit MEP, Dialux"},
+      {label:"Otomasyon Sistemleri", items:"S7-PLC, WinCC"},
+      {label:"Ofis Araçları", items:"MS Office"},
+      {label:"Yazılım", items:"Python (Temel Seviye)"}
+    ],
+    languages_label:"Diller",
+    languages:[
+      {name:"Türkçe", level:"Anadil"},
+      {name:"Rusça", level:"Orta"},
+      {name:"İngilizce", level:"Orta"}
+    ],
+    internships_title:"Stajlar",
+    internships:[
+      {org:"Alcatel Lucent", period:"2010", desc:"Telekom altyapı çözümleri üzerine çalışma."},
+      {org:"TAV Atatürk Havalimanı", period:"2009", desc:"Havalimanı elektrik sistemleri üzerine saha çalışması."}
+    ],
+    footer_note:"Elektrik Mühendisliği · Proje Yönetimi · Otomasyon Sistemleri"
+  },
+
+  en: {
+    kicker:"Curriculum Vitae",
+    role:"Senior Electrical Engineer",
+    tagline:"14+ years of international EPC experience",
+    tb_location_label:"Location", tb_location_value:"Moscow, Russia",
+    tb_phone_label:"Phone", tb_email_label:"Email", tb_rev_label:"Document",
+    about_title:"About",
+    about_text:"I bring over 14 years of international experience in electrical engineering. Specializing in project management, electrical, low-current (ELV), and automation systems, I have successfully delivered complex projects across multiple countries. Known for strong team leadership, a solutions-driven approach, and strict adherence to quality standards, I consistently deliver projects on time and within budget.",
+    expertise_title:"Areas of Expertise",
+    expertise: [
+      "Implementation of electrical and low-current (ELV) systems",
+      "Project management and team coordination",
+      "Budgeting, procurement, and progress-payment tracking",
+      "Commissioning of electrical, low-current, and automation systems",
+      "Contract management and subcontractor coordination",
+      "Quality control and standards-compliant delivery"
+    ],
+    experience_title:"Experience",
+    jobs: [
+      {
+        role:"Electrical Site Lead", company:"Globalmep", period:"April 2025 — Present",
+        desc:"At an electrical-mechanical subcontracting firm, managing the completion of contracted electrical works for a residential development of 2,100 apartments with a 3-level parking structure.",
+        subs:[{name:"City Bay Residential Complex — Phase 3", period:"April 2025 — Present"}]
+      },
+      {
+        role:"Senior Electrical Engineer", company:"Limak Marash Stroy (LMS)", period:"September 2018 — November 2024",
+        desc:"Ensured standards-compliant delivery of contracted electrical, low-current, and automation works; managed project, procurement, production, and budget-tracking processes.",
+        subs:[
+          {name:"Kaliningrad Silicon Wafer & Photovoltaic Cell Manufacturing Complex", period:"September 2021 — November 2024"},
+          {name:"Perm Shopping Center", period:"2021"},
+          {name:"Chelyabinsk Airport", period:"September 2018 — 2021"}
+        ]
+      },
+      {
+        role:"Electrical Engineer", company:"GAP İnşaat, Turkmenistan", period:"October 2015 — August 2018 · Fertilizer Plant Project",
+        desc:"Led electrical infrastructure and instrumentation processes for a fertilizer plant project.",
+        subs:[
+          {name:"Built electrical infrastructure for a 3,000-person mobilization camp, accelerating operational readiness.", period:""},
+          {name:"Coordinated subcontractors in line with project work plans.", period:""},
+          {name:"Completed installation and testing of instrumentation systems with precision.", period:""}
+        ]
+      },
+      {
+        role:"Electrical Engineer", company:"Polimeks İnşaat", period:"November 2011 — 2015 · Turkmenistan & Russia",
+        desc:"Managed field implementation and commissioning of electrical and low-current systems.",
+        subs:[
+          {name:"Turkmenistan Cement Plant", period:"2011 — 2013", detail:"Commissioned PLC-based automation systems; built electrical infrastructure for process equipment, bringing it to production readiness."},
+          {name:"Indoor Athletics Arena — 5,000-capacity", period:"2013 — 2015", detail:"Delivered and oversaw ICT and power (strong-current) systems."}
+        ]
+      },
+      {
+        role:"Electrical Engineer", company:"MELIN Elektrik", period:"2013 · Spa Center, Sochi, Russia",
+        desc:"Actively involved in all phases of electrical projects, from design through implementation.",
+        subs:[{name:"Commissioned low- and high-current systems, contributing to the facility's opening.", period:""}]
+      }
+    ],
+    projects_title:"Featured Projects",
+    projects: [
+      {name:"Kaliningrad Silicon Wafer & Photovoltaic Cell Manufacturing Complex", period:"2021 — 2024", desc:"Built and successfully commissioned the complex's electrical and automation infrastructure from the ground up over a three-year period."},
+      {name:"Turkmenistan Fertilizer Plant", period:"2015 — 2018", desc:"Delivered the plant's mobilization infrastructure and electrical systems to international standards."},
+      {name:"Chelyabinsk Airport", period:"2018 — 2021", desc:"Delivered the airport's electrical and low-current systems on time and within budget."}
+    ],
+    profile_title:"Education & Competencies",
+    education_label:"Education",
+    education:[
+      {name:"Yıldız Technical University — Electrical Engineering", period:"2006 — 2011"},
+      {name:"Yedikule High School (Anatolian)", period:"2001 — 2005"}
+    ],
+    skills_label:"Digital Competencies",
+    skills:[
+      {label:"Design & Modeling", items:"AutoCAD, Revit MEP, Dialux"},
+      {label:"Automation Systems", items:"S7-PLC, WinCC"},
+      {label:"Office Tools", items:"MS Office"},
+      {label:"Software", items:"Python (Basic level)"}
+    ],
+    languages_label:"Languages",
+    languages:[
+      {name:"Turkish", level:"Native"},
+      {name:"Russian", level:"Intermediate"},
+      {name:"English", level:"Intermediate"}
+    ],
+    internships_title:"Internships",
+    internships:[
+      {org:"Alcatel Lucent", period:"2010", desc:"Worked on telecom infrastructure solutions."},
+      {org:"TAV Atatürk Airport", period:"2009", desc:"Field work on airport electrical systems."}
+    ],
+    footer_note:"Electrical Engineering · Project Management · Automation Systems"
+  },
+
+  ru: {
+    kicker:"Резюме",
+    role:"Ведущий инженер-электрик",
+    tagline:"14+ лет международного опыта в EPC-проектах",
+    tb_location_label:"Локация", tb_location_value:"Москва, Россия",
+    tb_phone_label:"Телефон", tb_email_label:"Эл. почта", tb_rev_label:"Документ",
+    about_title:"Обо мне",
+    about_text:"Более 14 лет международного опыта в области электротехники. Специализируюсь на управлении проектами, электрических, слаботочных и автоматизированных системах, успешно реализовал сложные проекты в нескольких странах. Отличаюсь сильными лидерскими качествами, ориентацией на результат и строгим соблюдением стандартов качества, обеспечивая сдачу проектов в срок и в рамках бюджета.",
+    expertise_title:"Область экспертизы",
+    expertise: [
+      "Внедрение электрических и слаботочных систем",
+      "Управление проектами и координация команды",
+      "Бюджетирование, закупки и контроль актов выполненных работ",
+      "Ввод в эксплуатацию электрических, слаботочных и автоматизированных систем",
+      "Управление договорами и координация субподрядчиков",
+      "Контроль качества и соответствие производственным стандартам"
+    ],
+    experience_title:"Опыт работы",
+    jobs: [
+      {
+        role:"Начальник электротехнического отдела", company:"Globalmep", period:"Апрель 2025 — по настоящее время",
+        desc:"В электромонтажной субподрядной компании курирую завершение контрактных электромонтажных работ на жилом комплексе из 2 100 квартир с 3-этажным паркингом.",
+        subs:[{name:"ЖК «City Bay» — Корпус 3", period:"Апрель 2025 — по настоящее время"}]
+      },
+      {
+        role:"Ведущий инженер-электрик", company:"Limak Marash Stroy (LMS)", period:"Сентябрь 2018 — Ноябрь 2024",
+        desc:"Обеспечивал соответствие стандартам при выполнении контрактных электрических, слаботочных и автоматизированных работ; управлял процессами проекта, снабжения, производства и бюджета.",
+        subs:[
+          {name:"Комплекс по производству кремниевых пластин и фотоэлектрических преобразователей, Калининград", period:"Сентябрь 2021 — Ноябрь 2024"},
+          {name:"Торговый центр, Пермь", period:"2021"},
+          {name:"Аэропорт Челябинск", period:"Сентябрь 2018 — 2021"}
+        ]
+      },
+      {
+        role:"Инженер-электрик", company:"GAP İnşaat, Туркменистан", period:"Октябрь 2015 — Август 2018 · Завод по производству удобрений",
+        desc:"Руководил процессами электроснабжения и КИПиА на проекте завода по производству удобрений.",
+        subs:[
+          {name:"Создал электроинфраструктуру мобилизационного городка на 3 000 человек, ускорив начало операционной деятельности.", period:""},
+          {name:"Координировал субподрядчиков в соответствии с производственными планами.", period:""},
+          {name:"Точно выполнил монтаж и испытания систем КИПиА.", period:""}
+        ]
+      },
+      {
+        role:"Инженер-электрик", company:"Polimeks İnşaat", period:"Ноябрь 2011 — 2015 · Туркменистан и Россия",
+        desc:"Управлял полевым монтажом и вводом в эксплуатацию электрических и слаботочных систем.",
+        subs:[
+          {name:"Цементный завод, Туркменистан", period:"2011 — 2013", detail:"Ввод в эксплуатацию систем автоматизации на базе ПЛК; построил электроинфраструктуру технологического оборудования, подготовив его к производству."},
+          {name:"Крытая легкоатлетическая арена на 5 000 мест", period:"2013 — 2015", detail:"Сдал проекты ИКТ и силового электроснабжения под своим контролем."}
+        ]
+      },
+      {
+        role:"Инженер-электрик", company:"MELIN Elektrik", period:"2013 · СПА-центр, Сочи, Россия",
+        desc:"Принимал активное участие во всех этапах электротехнических проектов — от проектирования до реализации.",
+        subs:[{name:"Ввёл в эксплуатацию слаботочные и сильноточные системы, способствовал открытию объекта.", period:""}]
+      }
+    ],
+    projects_title:"Ключевые проекты",
+    projects: [
+      {name:"Комплекс по производству кремниевых пластин и фотоэлектрических преобразователей, Калининград", period:"2021 — 2024", desc:"С нуля построил и успешно ввёл в эксплуатацию электротехническую и автоматизированную инфраструктуру комплекса за три года."},
+      {name:"Завод по производству удобрений, Туркменистан", period:"2015 — 2018", desc:"Реализовал мобилизационную инфраструктуру и электрические системы завода в соответствии с международными стандартами."},
+      {name:"Аэропорт Челябинск", period:"2018 — 2021", desc:"Сдал электрические и слаботочные системы аэропорта в срок и в рамках бюджета."}
+    ],
+    profile_title:"Образование и компетенции",
+    education_label:"Образование",
+    education:[
+      {name:"Йылдызский технический университет — Электротехника", period:"2006 — 2011"},
+      {name:"Лицей Едикуле", period:"2001 — 2005"}
+    ],
+    skills_label:"Цифровые компетенции",
+    skills:[
+      {label:"Проектирование и моделирование", items:"AutoCAD, Revit MEP, Dialux"},
+      {label:"Системы автоматизации", items:"S7-PLC, WinCC"},
+      {label:"Офисные программы", items:"MS Office"},
+      {label:"Программирование", items:"Python (базовый уровень)"}
+    ],
+    languages_label:"Языки",
+    languages:[
+      {name:"Турецкий", level:"Родной"},
+      {name:"Русский", level:"Средний"},
+      {name:"Английский", level:"Средний"}
+    ],
+    internships_title:"Стажировки",
+    internships:[
+      {org:"Alcatel Lucent", period:"2010", desc:"Работа над решениями телекоммуникационной инфраструктуры."},
+      {org:"Аэропорт Ататюрк, TAV", period:"2009", desc:"Практика по электрическим системам аэропорта."}
+    ],
+    footer_note:"Электротехника · Управление проектами · Автоматизация"
+  }
+};
+
+function el(tag, cls, html){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(html !== undefined) e.innerHTML = html;
+  return e;
+}
+
+function render(lang){
+  const d = DATA[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(node=>{
+    const key = node.getAttribute('data-i18n');
+    if(d[key] !== undefined) node.textContent = d[key];
+  });
+
+  document.title = "Önder Aydoğdu — " + d.role;
+
+  const eg = document.getElementById('expertiseGrid');
+  eg.innerHTML = '';
+  d.expertise.forEach((item, i)=>{
+    const row = el('div');
+    row.innerHTML = `<span class="ix mono">${String(i+1).padStart(2,'0')}</span><span>${item}</span>`;
+    eg.appendChild(row);
+  });
+
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = '';
+  d.jobs.forEach((job, i)=>{
+    const jobEl = el('div', 'job');
+    const subsHtml = job.subs.map(s=>{
+      const period = s.period ? `<span class="sp-period">${s.period}</span>` : '';
+      const detail = s.detail ? `<span class="sp-detail">${s.detail}</span>` : '';
+      return `<li><span class="sp-name">${s.name}</span>${period}${detail}</li>`;
+    }).join('');
+    jobEl.innerHTML = `
+      <div class="job-marker mono">${String(i+1).padStart(2,'0')}<span class="dot"></span></div>
+      <h3>${job.role}</h3>
+      <div class="org mono">${job.company} — ${job.period}</div>
+      <p class="desc">${job.desc}</p>
+      <ul class="subprojects">${subsHtml}</ul>
+    `;
+    tl.appendChild(jobEl);
+  });
+
+  const pg = document.getElementById('projectsGrid');
+  pg.innerHTML = '';
+  d.projects.forEach((p, i)=>{
+    const card = el('div', 'proj-card');
+    card.innerHTML = `
+      <div class="pc-num">${String(i+1).padStart(2,'0')}</div>
+      <h3>${p.name}</h3>
+      <div class="pc-period mono">${p.period}</div>
+      <p>${p.desc}</p>
+    `;
+    pg.appendChild(card);
+  });
+
+  const edl = document.getElementById('educationList');
+  edl.innerHTML = '';
+  d.education.forEach(e=>{
+    const item = el('div', 'edu-item');
+    item.innerHTML = `<div class="e-name">${e.name}</div><div class="e-period mono">${e.period}</div>`;
+    edl.appendChild(item);
+  });
+
+  const skl = document.getElementById('skillsList');
+  skl.innerHTML = '';
+  d.skills.forEach(s=>{
+    const g = el('div', 'skill-group');
+    g.innerHTML = `<div class="sg-label">${s.label}</div><div class="sg-items">${s.items}</div>`;
+    skl.appendChild(g);
+  });
+
+  const lgl = document.getElementById('languagesList');
+  lgl.innerHTML = '';
+  d.languages.forEach(l=>{
+    const item = el('div', 'lang-item');
+    item.innerHTML = `<span>${l.name}</span><span class="l-level">${l.level}</span>`;
+    lgl.appendChild(item);
+  });
+
+  const inl = document.getElementById('internList');
+  inl.innerHTML = '';
+  d.internships.forEach(i=>{
+    const item = el('div', 'intern-item');
+    item.innerHTML = `
+      <div>
+        <div class="i-org">${i.org}</div>
+        <div class="i-period mono">${i.period}</div>
+      </div>
+      <p>${i.desc}</p>
+    `;
+    inl.appendChild(item);
+  });
+
+  document.querySelectorAll('.langbar button').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+}
+
+document.querySelectorAll('.langbar button').forEach(btn=>{
+  btn.addEventListener('click', ()=> render(btn.getAttribute('data-lang')));
+});
+
+render('tr');
+</script>
+</body>
+</html>
