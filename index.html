@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad Soyad — Özgeçmiş</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --ink:#20242B;
+    --navy:#1B2A38;
+    --teal:#3E7C74;
+    --gold:#B8922E;
+    --line:#D8D3C6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--teal);}
+  .wrap{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    max-width:920px;
+    margin:0 auto;
+    min-height:100vh;
+  }
+  .rail{
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:48px 0;
+    gap:40px;
+    position:sticky;
+    top:0;
+    height:100vh;
+  }
+  .rail span{
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#8A8578;
+  }
+  .rail .dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--teal);
+  }
+  main{padding:56px 48px 96px;}
+  header.hero{
+    margin-bottom:64px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:56px;
+    line-height:1.02;
+    margin:0 0 12px;
+    color:var(--navy);
+  }
+  .role{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:22px;
+    color:#4B4A42;
+    margin:0 0 24px;
+  }
+  .contact{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+  }
+  .contact a{text-decoration:none;border-bottom:1px solid var(--line);}
+  .contact a:hover{border-color:var(--teal);}
+  section{margin-bottom:56px;}
+  section h2{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--navy);
+    margin:0 0 24px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  section h2::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+  p.lead{
+    font-size:17px;
+    max-width:60ch;
+    color:#3A3A34;
+  }
+  .item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+    margin-bottom:28px;
+  }
+  .item .when{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--gold);
+    padding-top:3px;
+  }
+  .item h3{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    margin:0 0 4px;
+    color:var(--navy);
+  }
+  .item .org{
+    font-size:14px;
+    color:#6B6A61;
+    margin:0 0 8px;
+  }
+  .item p{margin:0;font-size:15px;color:#3A3A34;}
+  .skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skills span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    padding:7px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--navy);
+    background:#fff;
+  }
+  .edu .item{grid-template-columns:120px 1fr;}
+  footer{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#9A9689;
+    border-top:1px solid var(--line);
+    padding-top:24px;
+  }
+  @media (max-width:680px){
+    .rail{display:none;}
+    .wrap{grid-template-columns:1fr;}
+    main{padding:40px 24px 72px;}
+    h1{font-size:38px;}
+    .item{grid-template-columns:1fr;gap:4px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="rail">
+    <span>Özgeçmiş</span>
+    <div class="dot"></div>
+  </div>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Özgeçmiş / CV</p>
+      <h1>Ad Soyad</h1>
+      <p class="role">Ünvanınız — örn. Yazılım Geliştirici</p>
+      <div class="contact">
+        <a href="mailto:ornek@eposta.com">ornek@eposta.com</a>
+        <a href="tel:+905551234567">+90 555 123 45 67</a>
+        <a href="https://linkedin.com/in/kullaniciadi" target="_blank">linkedin.com/in/kullaniciadi</a>
+        <a href="https://github.com/kullaniciadi" target="_blank">github.com/kullaniciadi</a>
+        <span>İstanbul, Türkiye</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Hakkımda</h2>
+      <p class="lead">
+        Kendinizi iki-üç cümleyle tanıtın: kim olduğunuz, hangi alanda uzmanlaştığınız
+        ve neyi hedeflediğiniz. Bu bölüm sayfayı ilk ziyaret edenin sizi 10 saniyede
+        anlamasını sağlar.
+      </p>
+    </section>
+
+    <section>
+      <h2>Deneyim</h2>
+      <div class="item">
+        <div class="when">2023 — Devam</div>
+        <div>
+          <h3>Pozisyon Adı</h3>
+          <p class="org">Şirket Adı, Şehir</p>
+          <p>Bu rolde ne yaptığınızı, hangi sorumlulukları üstlendiğinizi ve
+             ölçülebilir bir sonucu kısaca anlatın.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">2021 — 2023</div>
+        <div>
+          <h3>Önceki Pozisyon</h3>
+          <p class="org">Önceki Şirket, Şehir</p>
+          <p>Bu roldeki başarılarınızı ve edindiğiniz becerileri özetleyin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Yetenekler</h2>
+      <div class="skills">
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>Git</span>
+        <span>SQL</span>
+        <span>Proje Yönetimi</span>
+        <span>İletişim</span>
+      </div>
+    </section>
+
+    <section class="edu">
+      <h2>Eğitim</h2>
+      <div class="item">
+        <div class="when">2017 — 2021</div>
+        <div>
+          <h3>Bölüm Adı</h3>
+          <p class="org">Üniversite Adı</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Bu site GitHub Pages üzerinde yayınlanmaktadır.
+    </footer>
+  </main>
+</div>
+</body>
+</html>
